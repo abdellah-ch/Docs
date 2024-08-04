@@ -34,8 +34,18 @@ export const getDocumentUsers = async ({roomId , currentUser , text} : {roomId :
     try {
         const room = await liveblocks.getRoom(roomId);
 
-        const users = Object
+        const users = Object.keys(room.usersAccesses).filter((email)=> email !== currentUser)
+
+        if(text.length){
+            const lowerCaseText = text.toLocaleLowerCase()
+            //text input probably to search document users 
+            const filteredUsers = users.filter((email:string) => email.toLocaleLowerCase().includes(lowerCaseText))
+
+            return parseStringify(filteredUsers)
+        }
+
+        return parseStringify(users)
     } catch (error) {
-        
+       console.log(`Error fetching document users : ${error}`) 
     }
 }
