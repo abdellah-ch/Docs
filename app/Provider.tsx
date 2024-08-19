@@ -11,6 +11,7 @@ import { ReactNode } from "react";
 
 const Provider = ({ children }: { children: ReactNode }) => {
   //rename the object user to clerUser
+
   const { user: clerkUser } = useUser();
 
   return (
