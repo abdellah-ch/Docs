@@ -17,7 +17,7 @@ export const createDocument = async ({userId, email}:CreateDocumentParams) =>{
         title: 'Untitled'
        }
 
-       const usersAccesses: RoomAccesses = {
+       const usersAccesses : RoomAccesses = {
         [email]: ['room:write']
        }
 

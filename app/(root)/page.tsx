@@ -5,6 +5,8 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import AddDocumentBtn from "@/components/AddDocumentBtn";
+
 
 const Home = async () => {
   const clerkUser = await currentUser();
@@ -37,7 +39,7 @@ const Home = async () => {
             className="mx-auto"
           />
 
-          <AddDocumentBtn />
+          <AddDocumentBtn userId = {clerkUser.id} email = {clerkUser.emailAddresses[0].emailAddress}  />
         </div>
       )}
     </main>
