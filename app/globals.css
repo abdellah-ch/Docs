@@ -37,9 +37,6 @@
     .home-container{
         @apply relative flex min-h-screen w-full flex-col items-center gap-5 sm:gap-10;
     }
-    .header{
-        @apply min-h-[92px] min-w-full flex-nowrap  flex w-full items-center justify-between gap-2 px-4;
-    }
     .document-list-empty {
         @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-dark-200 px-10 py-8;
     }
