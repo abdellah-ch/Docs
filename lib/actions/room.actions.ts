@@ -65,3 +65,13 @@ export const getDocuments = async (email: string) =>{
 export const updateDocumentAccess = async ({roomId, email, userType, updatedBy}: ShareDocumentParams)=>{
 
 }
+
+export const deleteDocument = async (roomId: string) => {
+   try {
+     await liveblocks.deleteRoom(roomId);
+     revalidatePath('/');
+     redirect('/');
+   } catch (error) {
+     console.log(`Error happened while deleting a room: ${error}`);
+   }
+ }

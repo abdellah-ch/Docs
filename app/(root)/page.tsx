@@ -7,6 +7,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import AddDocumentBtn from "@/components/AddDocumentBtn";
 import { dateConverter } from "@/lib/utils";
+import DeleteModal from "@/components/DeleteModal";
 
 const Home = async () => {
   const clerkUser = await currentUser();
@@ -15,6 +16,9 @@ const Home = async () => {
   const roomDocuments = await getDocuments(
     clerkUser.emailAddresses[0].emailAddress
   );
+
+  if (roomDocuments) console.log(roomDocuments);
+
   return (
     <main className="home-container">
       <Header className="sticky left-0 top-0">
@@ -59,6 +63,7 @@ const Home = async () => {
                     </p>
                   </div>
                 </Link>
+                <DeleteModal roomId={id} />
               </li>
             ))}
           </ul>
